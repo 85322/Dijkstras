@@ -12,3 +12,6 @@
 // wenn die target node als current node erfasst wurde, kann der algorithmus beendet werden, wenn nicht das ganze feld berechnet werden soll fuer den evtl optimalen path
 // die wegfunden findet von der target node stat und rechnet die kuerzesten nodes rueckwerts durch fuer den optimalen path
 // wenn das ergebnis unendlich ist, gibt es keinen weg
+
+
+//test
