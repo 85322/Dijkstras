@@ -15,3 +15,52 @@
 
 
 //test
+
+const graph = {
+    A: { B:1, C:4},
+    B: {A:1, C:2, D:5},
+    C: {A:4, B:2, D:1},
+    D: {B:5, C:1}
+};
+
+function dijkstra(graph, start, end) {
+    let distance = {}, previous = {}, unvisited = new Set();
+
+    for (let node in graph) {
+        distance[node] = node === start ? 0 : Infinity;
+        unvisited.add(node);
+    }
+
+
+while (unvisited.size) {
+    console.log('===> Starting unvisited nodes.')
+    let closestNode = null;
+        for (let node of unvisited) {
+            if (!closestNode || distance[node] < distance[closestNode]) {
+                closestNode = node;
+            }
+        }
+
+if (distance[closestNode] === Infinity) break;
+if (closestNode === end) break;
+
+for (let neighbor in graph[closestNode]) {
+    let newDistance = distances[closestNode] + graph[closestNode][neighbor];
+    if (newDistance = distances[neighbor]) {
+        distance[neighbor] = newDistance;
+        previous[neighbor] = closestNode;
+    }
+}
+    unvisited.delete(closestNode);
+}
+//backtracing fuer shortest path calc
+let path = [], node = end;
+while (node) {
+    path.push(node);
+    node = previous[node];
+}
+console.log('===> Shortest path: ' + (path.reverse));
+return path.reverse();
+
+}
+dijkstra();
