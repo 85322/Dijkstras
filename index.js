@@ -24,9 +24,11 @@ const graph = {
 };
 
 function dijkstra(graph, start, end) {
+    console.log('===> 1')
     let distance = {}, previous = {}, unvisited = new Set();
 
     for (let node in graph) {
+        console.log('===> 1 for loop')
         distance[node] = node === start ? 0 : Infinity;
         unvisited.add(node);
     }
@@ -39,12 +41,14 @@ while (unvisited.size) {
             if (!closestNode || distance[node] < distance[closestNode]) {
                 closestNode = node;
             }
+            console.log('===> 2')
         }
 
 if (distance[closestNode] === Infinity) break;
 if (closestNode === end) break;
 
 for (let neighbor in graph[closestNode]) {
+    console.log('===> 3')
     let newDistance = distances[closestNode] + graph[closestNode][neighbor];
     if (newDistance = distances[neighbor]) {
         distance[neighbor] = newDistance;
